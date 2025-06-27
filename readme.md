@@ -1,3 +1,22 @@
+```bash
+# For macOS arm.
+curl -o deno.zip https://ghfast.top/https://github.com/denoland/deno/releases/download/v1.25.0/deno-aarch64-apple-darwin.zip
+# For macOS x86.
+curl -o deno.zip https://ghfast.top/https://github.com/denoland/deno/releases/download/v1.25.0/deno-x86_64-apple-darwin.zip
+# For windows x86.
+curl -o deno.zip https://ghfast.top/https://github.com/denoland/deno/releases/download/v1.25.0/deno-x86_64-pc-windows-msvc.zip
+# For Linux x86.
+curl -o deno.zip https://ghfast.top/https://github.com/denoland/deno/releases/download/v1.25.0/deno-x86_64-unknown-linux-gnu.zip
+
+unzip deno.zip
+
+mv deno ~/.vocal
+chmod 777 ~/.vocal/deno
+
+
+echo 'GITHUB_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' > .env
+```
+
 #### Intro
 
 Export Discussions in a repo as `.md` files. Also generate an index of posts as well as feed (rss or json).
@@ -13,7 +32,7 @@ Export Discussions in a repo as `.md` files. Also generate an index of posts as 
 #### Usage (Local)
 
 1. Install deno (developed on `1.25`)
-2. Set environment variable `GITHUB_TOKEN` in command line or in `.env` file in project directory 
+2. Set environment variable [`GITHUB_TOKEN`](https://github.com/settings/tokens) in command line or in `.env` file in project directory
 3. Edit `script/config.js` as needed
 4. `deno run --allow-net --allow-env --allow-read --allow-write scripts/fetchPosts.js`
 
