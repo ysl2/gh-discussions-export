@@ -105,6 +105,10 @@ function processPosts(rawPostList) {
       post.author = rawPost.author.login
       post.category = rawPost.category.name
       post.labels = rawPost.labels.nodes?.map((label) => label.name) || []
+      // Normalize line endings
+      if (post.body) post.body = post.body.replace(/\r\n/g, '\n')
+      if (post.bodyText) post.bodyText = post.bodyText.replace(/\r\n/g, '\n')
+      if (post.bodyHTML) post.bodyHTML = post.bodyHTML.replace(/\r\n/g, '\n')
       Object.assign(post, config.extraFrontmatterPost(post))
       postList.push(post)
     }
